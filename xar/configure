@@ -5083,7 +5083,7 @@ if test "x$ac_cv_header_pthread_h" = xyes; then :
 _ACEOF
 
 else
-  have_pthread="0"
+  have_libpthread="0"
 fi
 
 done
@@ -5132,10 +5132,10 @@ _ACEOF
   LIBS="-lpthread $LIBS"
 
 else
-  have_pthread="0"
+  have_libpthread="0"
 fi
 
-if test "x${have_pthread}" = "x1" ; then
+if test "x${have_libpthread}" = "x1" ; then
   $as_echo "#define HAVE_PTHREAD 1" >>confdefs.h
 
 fi

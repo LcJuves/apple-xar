@@ -353,9 +353,9 @@ dnl
 dnl Configure libpthread.
 dnl 
 have_libpthread="1"
-AC_CHECK_HEADERS([pthread.h], , [have_pthread="0"])
-AC_CHECK_LIB([pthread], [pthread_mutex_lock], , [have_pthread="0"])
-if test "x${have_pthread}" = "x1" ; then
+AC_CHECK_HEADERS([pthread.h], , [have_libpthread="0"])
+AC_CHECK_LIB([pthread], [pthread_mutex_lock], , [have_libpthread="0"])
+if test "x${have_libpthread}" = "x1" ; then
   AC_DEFINE([HAVE_PTHREAD])
 fi
 
