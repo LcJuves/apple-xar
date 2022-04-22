@@ -320,6 +320,16 @@ if test "x${have_libxml2}" = "x0" ; then
 fi
 
 dnl 
+dnl Configure libcrypto (part of OpenSSL).
+dnl 
+have_libcrypto="1"
+AC_CHECK_HEADERS([openssl/evp.h], , [have_libcrypto="0"])
+AC_CHECK_LIB([crypto], [OpenSSL_add_all_ciphers], , [have_libcrypto="0"])
+if test "x${have_libcrypto}" = "x0" ; then
+  AC_MSG_ERROR([Cannot build without libcrypto (OpenSSL)])
+fi
+
+dnl 
 dnl Configure libz.
 dnl 
 have_libz="1"
@@ -359,3 +369,4 @@ AC_SUBST([cfgoutputs])
 AC_CONFIG_FILES([$cfgoutputs])
 
 AC_OUTPUT
+
